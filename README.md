@@ -5,4 +5,4 @@ An interactive dashboard of World Bank World Development Indicators (GDP per cap
 - index.html – page structure (heading, filter bar, KPI cards, chart area)
 - style.css – custom responsive styling (mobile, tablet, desktop)
 - app.js – CSV parsing, join, filtering, statistics (median, mean, population-weighted mean, % change) and Chart.js charts
-- data/ – wdi_indicators.csv, country_classification.csv
+- data – wdi_indicators.csv, country_classification.csv
