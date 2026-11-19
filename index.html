@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>World Development Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <h1>World Development Dashboard</h1>
+      <p class="subtitle">GDP per capita, life expectancy and population across World Bank regions and income groups</p>
+    </div>
+  </header>
+
+  <nav class="controls" aria-label="Dashboard filters">
+    <div class="wrap controls-grid">
+      <label>Region
+        <select id="f-region"></select>
+      </label>
+      <label>Income group
+        <select id="f-income"></select>
+      </label>
+      <label>Indicator
+        <select id="f-indicator">
+          <option value="gdp">GDP per capita (current US$)</option>
+          <option value="life">Life expectancy at birth (years)</option>
+        </select>
+      </label>
+      <label>Year
+        <select id="f-year"></select>
+      </label>
+      <button id="f-reset" type="button">Reset filters</button>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <p id="status" class="status" role="status">Loading data…</p>
+
+    <section class="kpis" aria-label="Summary indicators">
+      <article class="kpi"><h2>Economies with data</h2><p id="kpi-count" class="kpi-value">–</p><p id="kpi-count-sub" class="kpi-sub"></p></article>
+      <article class="kpi"><h2>Total population</h2><p id="kpi-pop" class="kpi-value">–</p><p id="kpi-pop-sub" class="kpi-sub"></p></article>
+      <article class="kpi"><h2 id="kpi-median-title">Median</h2><p id="kpi-median" class="kpi-value">–</p><p id="kpi-median-sub" class="kpi-sub"></p></article>
+      <article class="kpi"><h2 id="kpi-change-title">Change since 2000</h2><p id="kpi-change" class="kpi-value">–</p><p id="kpi-change-sub" class="kpi-sub"></p></article>
+    </section>
+
+    <section class="charts" aria-label="Charts">
+      <figure class="card wide">
+        <figcaption id="t-line">Trend</figcaption>
+        <div class="chart-box"><canvas id="c-line" role="img" aria-label="Line chart of the selected indicator over time by income group"></canvas></div>
+      </figure>
+      <figure class="card">
+        <figcaption id="t-bar">Top 10</figcaption>
+        <div class="chart-box"><canvas id="c-bar" role="img" aria-label="Bar chart of the ten highest economies for the selected indicator"></canvas></div>
+      </figure>
+      <figure class="card">
+        <figcaption id="t-doughnut">Population share</figcaption>
+        <div class="chart-box"><canvas id="c-doughnut" role="img" aria-label="Doughnut chart of population share"></canvas></div>
+      </figure>
+      <figure class="card wide">
+        <figcaption id="t-bubble">GDP per capita vs life expectancy</figcaption>
+        <div class="chart-box tall"><canvas id="c-bubble" role="img" aria-label="Bubble chart of GDP per capita against life expectancy, sized by population"></canvas></div>
+      </figure>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p id="gap-note"></p>
+      <p></p>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
